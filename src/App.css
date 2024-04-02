@@ -1,38 +1,97 @@
-.App {
+body {
+  background-color: #000;
+  color: #ffc107;
+}
+
+.ponto-eletronico-container {
+  text-align: center;
+  padding-bottom: 100px;
+}
+
+.login-title-container {
+  text-align: center;
+  padding-bottom: 100px;
+}
+
+.relogio {
+  font-size: 36px;
+  margin: 20px 0;
+  font-family: 'Arial Black', sans-serif;
+  color: #ffd700;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.borda {
+  border: 2px solid #ffc107;
+  padding: 20px;
+  display: inline-block;
+}
+
+.input-group {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+}
+
+select, input[type="password"] {
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+  background-color: #000;
+  color: #ffc107;
+  border: 2px solid #ffc107;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #ffc107;
+  color: #000;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ffca28;
+}
+
+.mensagem-erro-texto {
+  color: white;
+  background-color: red;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.modal-buttons {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.modal-buttons button {
+  margin: 0 5px;
 }

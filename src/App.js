@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import PontoEletronico from './pontoEletronico';
+import Footer from './Footer';
+import Login from './Login';
 
 function App() {
+  const [nome, setNome] = useState('');
+
+  const handleLogin = (nome) => {
+    setNome(nome);
+  };
+
+  const handleVoltarParaLogin = () => {
+    setNome('');
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {nome ? (
+        <PontoEletronico nome={nome} onVoltarParaLogin={handleVoltarParaLogin}/>
+      ) : (
+        <Login onLogin={handleLogin}/>
+      )}
+      <Footer />
     </div>
   );
 }
