@@ -27,12 +27,12 @@ function PontoEletronico({ nome, onVoltarParaLogin }) {
     setExibirModal(true);
   };
 
-  const handleConfirmarEnvio = async() => {
-    await axios.post('http://localhost:3333/registro',{
+  const handleConfirmarEnvio = async(date) => {
+    await axios.post('https://pontoeletronicobackend.onrender.com/registro',{
       data: {
-        name: nome,
-        typePoint: tipoPonto,
-        time: new Date(horario)
+        nome,
+        tipoPonto,
+        horario: ""
       }
     })
     setExibirModal(false);
@@ -43,8 +43,6 @@ function PontoEletronico({ nome, onVoltarParaLogin }) {
       setEnviado(false);
       setRegistroEnviado(true);
     }, 500);
-
-    console.log('Dados enviados:', { nome, tipoPonto, horario });
   };
 
   const handleCancelarEnvio = () => {
@@ -67,7 +65,8 @@ function PontoEletronico({ nome, onVoltarParaLogin }) {
     <div className="ponto-eletronico-form">
       <form onSubmit={handleSubmit}>
         <div className="ponto-eletronico-container">
-          <h2>Sistema de Ponto Eletrônico</h2>
+          <h2 className="ponto-eletronico-title">Sistema de Ponto Eletrônico</h2>          
+          <h1 className="ponto-eletronico-title">FernandoCar</h1>
           {!enviado && !registroEnviado && (
             <div className="relogio">
               <p>{horaAtual}</p>
@@ -76,11 +75,11 @@ function PontoEletronico({ nome, onVoltarParaLogin }) {
           {!enviado && !registroEnviado && (
             <div className="borda">
               <div className="input-group">
-                <label htmlFor="nome">Nome:</label>
+                <label htmlFor="nome" className="ponto-eletronico-nome">Nome:</label>
                 <p>{nome}</p>
               </div>
               <div className="input-group">
-                <label htmlFor="tipoPonto">Tipo de Ponto:</label>
+                <label htmlFor="tipoPonto" className="ponto-eletronico-tipo">Tipo de Ponto:</label>
                 <select id="tipoPonto" value={tipoPonto} onChange={(e) => setTipoPonto(e.target.value)} required>
                   <option value="">Selecione...</option>
                   <option value="entrada">Entrada</option>
@@ -118,6 +117,9 @@ function PontoEletronico({ nome, onVoltarParaLogin }) {
           />
         </div>
       )}
+      {/* <div class="logo-container">
+            <img src="images/logoprov.png" alt="Logo da Empresa"/>
+          </div> */}
     </div>
   );
 }

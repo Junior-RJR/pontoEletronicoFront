@@ -8,16 +8,33 @@ body {
   padding-bottom: 100px;
 }
 
+.ponto-eletronico-title {
+  color: #fff;
+}
+
+.ponto-eletronico-nome {
+  color: #fff;
+}
+
+.ponto-eletronico-tipo {
+  color: #fff;
+}
+
 .login-title-container {
   text-align: center;
   padding-bottom: 100px;
+  color: #fff;
 }
+
+/* .Login-entrar {
+  color: #fff;
+} */
 
 .relogio {
   font-size: 36px;
   margin: 20px 0;
   font-family: 'Arial Black', sans-serif;
-  color: #ffd700;
+  color: #d4b506;
 }
 
 .login-container {
@@ -94,4 +111,15 @@ button:hover {
 
 .modal-buttons button {
   margin: 0 5px;
+}
+
+.logo-container {
+  position: relative;
+  margin-top: 20px; /* ajuste conforme necessário */
+  text-align: center; /* centralizar o logo horizontalmente */
+}
+
+.logo-container img {
+  width: 200px; /* ajuste o tamanho conforme necessário */
+  height: auto; /* mantém a proporção da imagem */
 }

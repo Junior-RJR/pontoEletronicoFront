@@ -1,6 +1,7 @@
 function Modal({ titulo, conteudo, onConfirmar, onCancelar }) {
     const handleConfirmar = async() => {
-      await onConfirmar();
+      const date = new Date()
+      await onConfirmar(date);
     };
   
     const handleCancelar = () => {

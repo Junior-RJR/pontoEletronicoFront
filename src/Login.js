@@ -9,19 +9,24 @@ function Login({ onLogin }) {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
-    await axios.post('http://localhost:3333/login',{
-      data: {
-        name: nome,
-        key: senha,
-      }
-    })
-    onLogin(nome);
+    try {
+      await axios.post('https://pontoeletronicobackend.onrender.com/login',{
+        data: {
+          name: nome,
+          key: senha,
+        }
+      })
+      onLogin(nome);
+    } catch (error) {
+      setMensagem('Senha Incorreta')
+    }
   };
 
   return (
     <div className="login-title-container">
         <div>
-          <h2>Sistema de Ponto Eletrônico</h2>
+          <h2 className="Titulo-Principal">Sistema de Ponto Eletrônico</h2>
+          <h1 className="Titulo-Principal">FernandoCar</h1>
           <div className="borda">
             <form onSubmit={handleSubmit}>
               <div className="input-group">
@@ -33,7 +38,7 @@ function Login({ onLogin }) {
                   <option value="Jonathan">Jonathan</option>
                   <option value="Felipe">Felipe</option>
                   <option value="Rebeca">Rebeca</option>
-                  <option value="Junior">Junior</option>
+                  <option value="Junior">Junior</option>     cz
                   <option value="admin">admin</option>
                 </select>
               </div>
@@ -46,10 +51,13 @@ function Login({ onLogin }) {
                   <p className="mensagem-erro-texto">{mensagem}</p>
                 </div>
               )}
-              <button type="submit">Login</button>
+              <button type="submit" className="Login-entrar">Login</button>
             </form>
           </div>
        </div>
+          <div class="logo-container">
+            <img src="images/logoFernandoCar.jpg" alt="Logo da Empresa"/>
+          </div>
     </div>
   );
 }
